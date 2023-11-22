@@ -20,9 +20,9 @@ connection.query(`
 `);
 
 app.get('/*', async (req, res) => {
-  let name = 'Marcelo';
+  if (req.params[0] === 'favicon.ico') res.send(`<h1>Full Cycle Rocks!!</h1>`);
 
-  if (req.params[0] && req.params[0] !== 'favicon.ico') name = req.params[0];
+  const name = req.params[0] || 'Marcelo';
 
   await connection.query(`INSERT INTO people (name) VALUES ('${name}')`);
 
