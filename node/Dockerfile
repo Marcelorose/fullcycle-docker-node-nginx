@@ -11,7 +11,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm install
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3000
 
