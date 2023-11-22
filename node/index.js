@@ -20,7 +20,10 @@ connection.query(`
 `);
 
 app.get('/*', async (req, res) => {
-  if (req.params[0] === 'favicon.ico') res.send(`<h1>Full Cycle Rocks!!</h1>`);
+  if (req.params[0] === 'favicon.ico') {
+    res.send(`<h1>Full Cycle Rocks!!</h1>`);
+    return;
+  }
 
   const name = req.params[0] || 'Marcelo';
 
